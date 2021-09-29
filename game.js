@@ -37,11 +37,12 @@ function game() {
     let numberOfTimes = 0;
     let userInput = "";
     let userInputButtons = document.querySelectorAll('.choice');
+    let resultOutputField = document.querySelector('#result');
 
     userInputButtons.forEach((button) => {
         button.addEventListener('click', (e) => {
             try {
-                alert(playRound(e.target.value, computerPlay()));
+                resultOutputField.innerHTML = playRound(e.target.value, computerPlay());
             } catch (error) {
                 console.log(error);
             }
