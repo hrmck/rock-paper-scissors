@@ -34,15 +34,23 @@ function playRound(playerSelection, computerSelection){
 }
 
 function game() {
-    let numberOfTimes = 0;
+    let numberOfWins = 0;
     let userInput = "";
     let userInputButtons = document.querySelectorAll('.choice');
     let resultOutputField = document.querySelector('#result');
+    let pointOutputField = document.querySelector('#points');
 
     userInputButtons.forEach((button) => {
         button.addEventListener('click', (e) => {
             try {
                 resultOutputField.innerHTML = playRound(e.target.value, computerPlay());
+                if (resultOutputField.innerHTML.indexOf("Win") >= 0) {
+                    numberOfWins++;
+                }
+                if (numberOfWins == 5) {
+                    alert("You've got 5 points! Congrats!");
+                }
+                pointOutputField.innerHTML = `You now have ${numberOfWins} point(s). Let's get 5 points!`; 
             } catch (error) {
                 console.log(error);
             }
