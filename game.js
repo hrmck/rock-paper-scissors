@@ -36,11 +36,17 @@ function playRound(playerSelection, computerSelection){
 function game() {
     let numberOfTimes = 0;
     let userInput = "";
-    while (numberOfTimes < 5) {
-        userInput = prompt("Enter one of them: Paper, Scissors, Rock");
-        console.log(playRound(userInput, computerPlay()));
-        numberOfTimes++;
-    } 
+    let userInputButtons = document.querySelectorAll('.choice');
+
+    userInputButtons.forEach((button) => {
+        button.addEventListener('click', (e) => {
+            try {
+                alert(playRound(e.target.value, computerPlay()));
+            } catch (error) {
+                console.log(error);
+            }
+        });
+    });
 }
 
 game();

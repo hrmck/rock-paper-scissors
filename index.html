@@ -1,9 +1,19 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script type="text/javascript" src="game.js"></script>
+        <script type="text/javascript" src="game.js" defer></script>
+        <script src="https://kit.fontawesome.com/cc55e46757.js" crossorigin="anonymous"></script>
     </head>
     <body>
-
+        <div>
+            <p>Choose one of the following to start:</p>
+            <button class="choice" value="Paper"><i class="far fa-hand-paper"></i></button>
+            <button class="choice" value="Scissors"><i class="far fa-hand-scissors"></i></button>
+            <button class="choice" value="Rock"><i class="far fa-hand-rock"></i></button>
+        </div>
+        <div>
+            <p id="result"></p>
+            <p id="points"></p>
+        </div>
     </body>
 </html>
